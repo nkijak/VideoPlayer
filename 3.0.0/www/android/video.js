@@ -1,3 +1,4 @@
+var exec = require("cordova/exec");
 var VideoPlayer = function () {};
 
 /**
@@ -6,10 +7,7 @@ var VideoPlayer = function () {};
  * @param url           The url to play
  */
 VideoPlayer.prototype.play = function(url) {
-    window.location = url;
+    exec(null, null, "VideoPlayer", "playVideo", [url]);
 };
 
-
 module.exports = new VideoPlayer();
-
-

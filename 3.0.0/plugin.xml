@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://cordova.apache.org/ns/plugins/1.0"
+           id="org.apache.cordova.videoplayer"
+      version="3.0.0">
+    <name>VideoPlayer</name>
+
+    <js-module src="www/video.js" name="VideoPlayer">
+        <clobbers target="VideoPlayer" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <js-module src="www/android/video.js" name="AndroidVideoPlayer">
+            <clobbers target="VideoPlayer" />
+        </js-module> 
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VideoPlayer">
+                <param name="android-package" value="org.apache.cordova.videoplayer.VideoPlayer" />
+            </feature>
+        </config-file>
+        <source-file src="src/org/apache/cordova/videoplayer/VideoPlayer.java" target-dir="src/apache/cordova/videoplayer" />
+    </platform>
+</plugin>
